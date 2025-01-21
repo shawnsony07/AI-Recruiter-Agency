@@ -1,0 +1,26 @@
+2025-01-14 13:02:11,741 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-14 13:02:11,936 - AI_Recruiter - ERROR - Error processing resume: 'structured data'
+2025-01-14 13:02:11,980 - AI_Recruiter - ERROR - Processing error: 'structured data'
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\PycharmProjects\ai-recruiter-agency\.venv\app.py", line 128, in main
+    result = asyncio.run(process_resume(file_path))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\PycharmProjects\ai-recruiter-agency\.venv\app.py", line 58, in process_resume
+    return await orchestrator.process_application(resume_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\PycharmProjects\ai-recruiter-agency\.venv\agents\orchestrator.py", line 54, in process_application
+    analysis_results = await self.analyzer.run(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\PycharmProjects\ai-recruiter-agency\.venv\agents\analyzer_agent.py", line 42, in run
+    {extracted_data["structured data"]}
+     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'structured data'
